@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block title %}
+{{Contact.Name}}
+{% endblock title %}
+
+
+{% block content %}
+<!-- Main Section -->
+    <div class="container">
+      <h2 class="heading font-weight-light text-center">{{Contact.Name}}</h2>
+      <hr />
+    </div>
+    <div class="container main-part">
+      <!-- Card for details -->
+      {%include 'partials/_card.html'%}
+      </div>
+      <h5 class="text-center my-3 fonnt-weight-dark">Date Added:&nbsp;{{Contact.date_added}}</h5>
+      <div class="container mt-3">
+      <p class="text-center text-light">
+      <a class= "btn btn-info px-4" href="{% url 'update' Contact.id %}">
+      <i class='fas fa-edit'></i> &nbsp;Update 
+      </a>
+      &nbsp;&nbsp;&nbsp;
+      <a class= "btn btn-danger px-4" href="{% url 'delete' Contact.id %}">
+      <i class='fas fa-edit'></i> &nbsp;Delete 
+      </a>
+      </p>
+      </div>
+    <!-- Main Section ends-->
+{% endblock content %}
